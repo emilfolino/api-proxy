@@ -23,6 +23,6 @@
     .then(function (response) {
         return response.json();
     }).then(function(result) {
-        console.log("With proxy: ", result);
+        console.log("With proxy studentserver: ", result);
     });
 })();
