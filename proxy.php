@@ -1,5 +1,8 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json");
+
 if (isset($_GET["url"])) {
     // create curl resource
     $ch = curl_init();
@@ -16,8 +19,9 @@ if (isset($_GET["url"])) {
     // close curl resource to free up system resources
     curl_close($ch);
 
-    header('Content-Type: application/json');
     exit($output);
 }
 
-print("<p>no url GET param</p>");
+$error = json_encode(["message" => "No url GET param"]);
+
+exit($error);
